@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [createUserWithEmailAndPassword, user] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user] =  useCreateUserWithEmailAndPassword(auth)
 
+ 
   //email
   const handleEmailBlur = event => {
     setEmail(event.target.value);
@@ -25,22 +26,23 @@ const SignUp = () => {
     setConfirmPassword(event.target.value);
   };
 
-  //form submit
+  //form submit-----------------------form
   const handleCreateUser = event => {
-    event.preventDefault();
-    // console.log(email , 'email', password, 'password', confirmPassword);
 
-    if (password !== confirmPassword) {
-      setError("Your two password did not match");
-      return;
+    event.preventDefault()
+    console.log(email , password);
+    if(password !== confirmPassword){
+      setError('password did not match')
     }
-    if (password.length < 6) {
-      setError("password length minimum 6 letter");
+    if(password.length < 6){
+      setError('password minimum 6 character ')
     }
-    //   // user create
-    createUserWithEmailAndPassword(email, password);
+    
+    createUserWithEmailAndPassword(email, password)
+    
   };
 
+  console.log(user, 'user');
   return (
     <div className="form_container">
       <div>

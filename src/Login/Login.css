@@ -1,0 +1,47 @@
+.form_container {
+  width: 500px;
+  height: 600px;
+  background: #ffffff;
+  border: 1px solid #95a0a7;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  padding: 0 43px;
+}
+
+.form_title {
+  color: #2a414f;
+  font-size: 35px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+}
+
+.form_group {
+  margin-bottom: 20px;
+}
+
+.form_group label {
+  display: block;
+  margin-left: 5px;
+  color: #2a414f;
+  font-weight: 400;
+}
+.form_group input {
+  width: 415px;
+  height: 55px;
+  font-size: 22px;
+  border: 1px solid rgba(149, 160, 167, 1);
+  border-radius: 5px;
+}
+
+.form_submit{
+width: 415px;
+height: 55px;
+background: rgba(255, 153, 0, 0.3);
+border-radius: 5px;
+border: none;
+font-size: 25px;
+}
+

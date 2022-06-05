@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [createUserWithEmailAndPassword, user] =  useCreateUserWithEmailAndPassword(auth)
+  const [createUserWithEmailAndPassword, user] =
+    useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
 
- 
   //email
   const handleEmailBlur = event => {
     setEmail(event.target.value);
@@ -20,7 +20,9 @@ const SignUp = () => {
   const handlePasswordBlur = event => {
     setPassword(event.target.value);
   };
-
+  if (user) {
+    navigate("/shop");
+  }
   //secreet
   const handleConfirmPasswordBlur = event => {
     setConfirmPassword(event.target.value);
@@ -28,21 +30,19 @@ const SignUp = () => {
 
   //form submit-----------------------form
   const handleCreateUser = event => {
+    event.preventDefault();
+    console.log(email, password);
+    if (password !== confirmPassword) {
+      setError("password did not match");
+    }
+    if (password.length < 6) {
+      setError("password minimum 6 character ");
+    }
 
-    event.preventDefault()
-    console.log(email , password);
-    if(password !== confirmPassword){
-      setError('password did not match')
-    }
-    if(password.length < 6){
-      setError('password minimum 6 character ')
-    }
-    
-    createUserWithEmailAndPassword(email, password)
-    
+    createUserWithEmailAndPassword(email, password);
   };
 
-  console.log(user, 'user');
+  /* new line stat beak the stop for now ready and go .. .. */
   return (
     <div className="form_container">
       <div>

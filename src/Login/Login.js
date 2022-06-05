@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
- let form = location.state?.form?.pathname || "/";
+  let form = location.state?.form?.pathname || "/";
 
   //  email
   const handleEmailBlur = event => {

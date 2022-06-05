@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+ let form = location.state?.form?.pathname || "/";
 
   //  email
   const handleEmailBlur = event => {
@@ -25,7 +25,7 @@ const Login = () => {
   };
   // jodi user take taile shop a niya jay
   if (user) {
-    navigate(from, { replace: true });
+    navigate(form, { replace: true });
   }
   const handleUserSignIn = event => {
     // console.log(email, password, 'email, password');
